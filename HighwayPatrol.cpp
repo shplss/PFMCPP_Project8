@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#include "Highway.h"
 #include "Car.h"
 #include "Motorcycle.h"
 #include "SemiTruck.h"
@@ -14,7 +15,7 @@ void HighwayPatrol::scanHighway(Highway* h)
 {
     std::cout << name << ": scanning highway for speeders" << std::endl;
 
-    for( int i = h->vehicles.size(); --i >= 0; )
+    for( size_t i = h->vehicles.size(); --i >= 0; )
     {
         auto* v = h->vehicles[i];
         if( v->speed > h->speedLimit + 5 )
@@ -36,14 +37,10 @@ void HighwayPatrol::pullOver( Vehicle* v, bool willArrest, Highway* h )
         if(auto* car = dynamic_cast<Car*>(v))
         {
             type = "CAR";
-        }
-
-        if(auto* bike = dynamic_cast<Motorcycle*>(v))
+        } else if(auto* bike = dynamic_cast<Motorcycle*>(v))
         {
             type = "MOTORCYCLE";
-        }
-
-        if(auto* truck = dynamic_cast<SemiTruck*>(v))
+        } else if(auto* truck = dynamic_cast<SemiTruck*>(v))
         {
             type = "TRUCK";
         }

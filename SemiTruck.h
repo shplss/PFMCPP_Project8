@@ -10,5 +10,6 @@ struct SemiTruck : public Vehicle
     SemiTruck(const SemiTruck&) = default;
     SemiTruck& operator=(const SemiTruck&) = default;
 
+    void easeIn();
     void pullOver();
 };

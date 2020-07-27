@@ -5,13 +5,9 @@
 
 #include "Vehicle.h"
 
-struct Highway : public Vehicle
+struct Highway
 {
     Highway();
-
-    ~Highway() override;
-    Highway(const Highway&) = default;
-    Highway& operator=(const Highway&) = default;
 
     void changeSpeed(int newSpeed);
     void addVehicle(Vehicle* v);
